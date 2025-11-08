@@ -1,5 +1,160 @@
 ---
 
+### **The OSI Model (7 Layers)**
+
+A conceptual framework used to understand and standardize network functions.
+
+*   **Layer 7: Application**
+    *   **Feature:** The user interface to the network. Provides protocols (HTTP, DNS, FTP) that user-facing applications use directly.
+    *   **Analogy:** The app on your phone.
+
+*   **Layer 6: Presentation**
+    *   **Feature:** The data translator. Handles data formatting, encryption/decryption, and compression to ensure data is readable by the application layer.
+    *   **Analogy:** A universal translator for different languages.
+
+*   **Layer 5: Session**
+    *   **Feature:** The dialogue controller. Establishes, manages, and terminates communication sessions (conversations) between two applications.
+    *   **Analogy:** A meeting moderator who starts and stops the conversation.
+
+*   **Layer 4: Transport**
+    *   **Feature:** End-to-end reliability and process communication. Uses TCP (reliable) or UDP (unreliable) and **port numbers** to manage data flow and error control between applications.
+    *   **Analogy:** A post office sorting mail for a specific department (process) within a large building (computer).
+
+*   **Layer 3: Network**
+    *   **Feature:** Packet routing and logical addressing. Uses **IP addresses** to route packets across multiple networks and find the best path from source to destination.
+    *   **Analogy:** The GPS system that finds the best route for a delivery truck.
+
+*   **Layer 2: Data Link**
+    *   **Feature:** Hop-to-hop delivery on a local network. Uses **MAC addresses** to transfer data frames between devices on the same physical network and performs error detection.
+    *   **Analogy:** The local mail carrier delivering a letter to a specific street address on their route.
+
+*   **Layer 1: Physical**
+    *   **Feature:** Transmitting raw bits. Defines the physical hardware, such as cables, connectors, and electrical signals, for sending 0s and 1s over the medium.
+    *   **Analogy:** The physical road the delivery truck drives on.
+
+---
+
+### **The TCP/IP Model (4 or 5 Layers)**
+
+A practical model that the modern internet is based on. It's more condensed than the OSI model.
+
+*   **Application Layer**
+    *   **Feature:** Combines the functions of OSI layers 5, 6, and 7. It handles user-facing protocols (HTTP, DNS), data representation, and session management.
+
+*   **Transport Layer**
+    *   **Feature:** Identical to the OSI Transport Layer. It provides process-to-process communication using TCP or UDP and port numbers.
+
+*   **Internet Layer** (or Network Layer)
+    *   **Feature:** Identical to the OSI Network Layer. It uses the Internet Protocol (IP) for logical addressing and routing packets across networks.
+
+*   **Network Access Layer** (or Link Layer)
+    *   **Feature:** Combines the functions of OSI layers 1 and 2. It handles everything related to the physical transmission of data, including MAC addresses, frames, and the physical hardware.
+---
+
+### **UNIT-I: Introduction and Data Communication Components**
+
+This unit sets the foundation for everything that follows. It's about what a network is, its basic building blocks, and the models we use to understand it.
+
+*   **Computer Networks and Distributed Systems:** A **Computer Network** is a collection of interconnected computers that can share resources and data. A **Distributed System** is a type of system where components are located on different networked computers, which communicate and coordinate their actions to appear as a single coherent system to the end-user (e.g., the World Wide Web).
+*   **Classifications of Computer Networks:** Networks are classified by their size and geographical scope:
+    *   **LAN (Local Area Network):** Covers a small area like a single building or campus.
+    *   **MAN (Metropolitan Area Network):** Covers a city.
+    *   **WAN (Wide Area Network):** Covers a large geographical area, like a country or the entire globe (the internet is the largest WAN).
+*   **Preliminaries of Layered Network Structures:** Complex systems like networks are broken down into layers to make them easier to manage and design. Each layer provides a service to the layer above it and uses the services of the layer below it. This is the core principle behind the OSI and TCP/IP models.
+*   **Representation of Data and Its Flow:** Data flows through a network as a stream of **bits** (0s and 1s). This flow can be:
+    *   **Simplex:** Communication is one-way only (e.g., a radio broadcast).
+    *   **Half-Duplex:** Communication can be two-way, but not at the same time (e.g., a walkie-talkie).
+    *   **Full-Duplex:** Communication is two-way simultaneously (e.g., a telephone call).
+*   **Various Connection Topology:** The physical or logical arrangement of a network.
+    *   **Bus:** All devices share a single main cable.
+    *   **Star:** All devices connect to a central hub or switch (most common in modern LANs).
+    *   **Ring:** Each device is connected to exactly two other devices, forming a circle.
+    *   **Mesh:** Devices are interconnected, providing multiple paths for data (highly redundant).
+    *   **Hybrid:** A combination of two or more topologies.
+*   **Protocols and Standards:** A **protocol** is a set of rules that governs communication (like a language). **Standards** (e.g., IEEE, IETF) are agreed-upon specifications that ensure equipment from different manufacturers can work together.
+*   **OSI Model:** A 7-layer conceptual model that standardizes the functions of a network. (Application, Presentation, Session, Transport, Network, Data Link, Physical).
+*   **TCP/IP Model:** A 4 or 5-layer practical model that the internet is based on. (Application, Transport, Internet/Network, Data Link, Physical).
+*   **Transmission Media:** The physical path through which data travels.
+    *   **Wired:** Twisted-Pair Copper Cable, Coaxial Cable, Fiber Optic Cable.
+    *   **Wireless:** Radio waves (Wi-Fi, Bluetooth), Microwaves.
+*   **Network Architectures:**
+    *   **Client-Server:** A central, powerful server provides services to many less-powerful clients (e.g., a web server and your browser).
+    *   **Peer-To-Peer (P2P):** All devices have equal capabilities and can act as both a client and a server (e.g., BitTorrent).
+    *   **Hybrid:** Combines elements of both, like a P2P application that uses a central server for coordination.
+*   **Network Devices:**
+    *   **Bridge/Switch:** A Layer 2 device that connects network segments and uses MAC addresses to filter and forward traffic.
+    *   **Router:** A Layer 3 device that connects different networks and uses IP addresses to route traffic between them.
+    *   **Gateway:** A device that connects two networks that use different protocols (often used to refer to a router connecting a LAN to the internet).
+    *   **Access Point:** A device that allows wireless devices to connect to a wired network.
+*   **Line Coding Schemes:** Methods for converting digital data (0s and 1s) into a digital signal for transmission.
+    *   **Manchester Encoding:** A `0` is represented by a high-to-low voltage transition, and a `1` by a low-to-high transition. This guarantees a transition in the middle of each bit, which helps with clock synchronization.
+    *   **Differential Manchester Encoding:** A transition always occurs in the middle of the bit for synchronization. A `1` is represented by *no* transition at the beginning of the bit interval, and a `0` is represented by a transition.
+*   **Spread Spectrum:** A technique used to make a signal resistant to interference and eavesdropping by spreading it over a wider frequency band.
+    *   **FHSS (Frequency Hopping):** The signal rapidly hops between different frequencies in a pseudo-random but predictable sequence.
+    *   **DSSS (Direct Sequence):** Spreads the signal by multiplying it with a "chipping code," a high-frequency signal.
+
+---
+
+### **UNIT-II: Data Link Layer**
+
+This layer is responsible for **node-to-node** or **hop-to-hop** delivery of data. It takes packets from the Network Layer and encapsulates them into **frames** for transmission. It deals with MAC addresses, physical access to the media, and error detection.
+
+*   **Wired LAN, Wireless LAN and Virtual LAN:**
+    *   **Wired LAN:** A LAN that uses physical cables (e.g., Ethernet).
+    *   **Wireless LAN (WLAN):** A LAN that uses radio waves (e.g., Wi-Fi).
+    *   **Virtual LAN (VLAN):** A logical grouping of devices on a network, regardless of their physical location. VLANs allow you to segment a single physical switch into multiple virtual switches for security and traffic management.
+*   **Multiplexing:** A technique to send multiple signals over a single medium.
+    *   **Frequency Division (FDM):** Divides the channel's frequency band into smaller sub-channels, one for each signal.
+    *   **Time Division (TDM):** Gives each signal a specific time slot in which to transmit.
+    *   **Wave Division (WDM):** Used in fiber optics; sends multiple signals using different wavelengths (colors) of light.
+*   **Error Detection and Error Correction:**
+    *   **Error Detection:** Identifies that an error has occurred (e.g., CRC).
+    *   **Error Correction:** Can identify and fix the error without re-transmission (e.g., Hamming Code).
+*   **Block coding, Hamming Distance, CRC:**
+    *   **Block coding:** Adds redundant bits to a block of data to help detect/correct errors.
+    *   **Hamming Distance:** The number of bit positions in which two codewords differ. A higher Hamming distance means better error detection capabilities.
+    *   **CRC (Cyclic Redundancy Check):** A powerful error-detection algorithm that uses polynomial division to generate a checksum.
+*   **Flow Control and Error Control Protocols:**
+    *   **Flow Control:** Manages the data rate to ensure a fast sender doesn't overwhelm a slow receiver.
+    *   **Error Control:** Manages lost or corrupted frames, usually through acknowledgments (ACKs) and retransmissions.
+*   **Stop and Wait:** The simplest protocol. The sender sends one frame and then waits for an ACK before sending the next one. Very inefficient.
+*   **Go-Back–N ARQ & Selective Repeat ARQ (Sliding Window Protocols):**
+    *   **Sliding Window:** Allows the sender to transmit multiple frames (a "window") before waiting for an ACK, improving efficiency.
+    *   **Go-Back-N:** If a frame is lost, the sender re-transmits that frame and all subsequent frames in the window.
+    *   **Selective Repeat:** If a frame is lost, the sender only re-transmits the specific frame that was lost. The receiver can buffer out-of-order frames. More efficient but more complex.
+*   **Piggybacking:** A technique to improve efficiency where an acknowledgment for a received frame is sent along with (piggybacked onto) an outgoing data frame.
+*   **Random Access / Multiple Access Protocols:** Rules for sharing a common communication medium.
+    *   **ALOHA (Pure and Slotted):** Early, simple protocols. In Pure ALOHA, stations transmit whenever they want, leading to many collisions. Slotted ALOHA synchronizes transmissions into time slots to reduce collisions.
+    *   **CSMA/CD (Carrier Sense Multiple Access with Collision Detection):** Used in classic Ethernet. "Listen before you talk." If a collision is detected, stations back off for a random time before trying again.
+    *   **CSMA/CA (Carrier Sense Multiple Access with Collision Avoidance):** Used in Wi-Fi. Tries to *avoid* collisions before they happen, often by using a "Request to Send/Clear to Send" (RTS/CTS) mechanism.
+*   **Ethernet:** The dominant wired LAN technology. It defines the standards for cabling, signaling, and the CSMA/CD access method.
+
+---
+
+### **UNIT-III: Network Layer**
+
+This layer is responsible for **host-to-host** or **end-to-end** delivery of data. It handles the logical addressing and routing of **packets** across multiple networks.
+
+*   **Function of Network layer:** Logical addressing (IP addresses) and routing (determining the best path for a packet to take from source to destination).
+*   **Switching Techniques:** How data is moved through a network.
+    *   **Circuit Switching:** A dedicated physical path is established between sender and receiver for the entire duration of the communication (e.g., a traditional phone call).
+    *   **Packet Switching:** Data is broken into small packets, each of which is routed independently through the network. The internet is a packet-switched network.
+*   **IP Protocol:** The core protocol of the Network Layer. It is an **unreliable** and **connectionless** protocol responsible for addressing and routing packets.
+*   **Logical Addressing – IPV4, IPV6:**
+    *   **IPv4:** The legacy 32-bit addressing scheme (e.g., `192.168.1.1`). It is running out of addresses.
+    *   **IPv6:** The new 128-bit addressing scheme (e.g., `2001:0db8:85a3::8a2e:0370:7334`). Provides a vastly larger address space.
+*   **Subnet:** The process of dividing a large network into smaller, more manageable sub-networks.
+*   **CIDR (Classless Inter-Domain Routing):** The modern method of allocating IP addresses and routing. It replaces the old classful system (A, B, C) and allows for variable-length subnet masks, which is much more efficient.
+*   **Address Mapping:** Protocols that map addresses from one layer to another.
+    *   **ARP (Address Resolution Protocol):** Maps a known IP address to an unknown MAC address. (Query: "Who has IP address 192.168.1.10? Tell me your MAC address.")
+    *   **RARP (Reverse ARP):** An obsolete protocol that mapped a known MAC address to an IP address.
+    *   **BOOTP and DHCP:** BOOTP is an older protocol for diskless workstations to get an IP address. **DHCP (Dynamic Host Configuration Protocol)** is its modern successor. DHCP is a client-server protocol that automatically provides a host with its IP address, subnet mask, default gateway, and DNS server information.
+*   **Delivery, Forwarding and Unicast Routing Protocols:**
+    *   **Delivery:** Getting a packet to its destination.
+    *   **Forwarding:** The action a router takes when it receives a packet: it looks up the destination IP in its routing table and forwards the packet out the correct interface.
+    *   **Unicast Routing Protocols:** The protocols that routers use to build and maintain their routing tables. They exchange information with other routers to learn about the network's topology. Examples include **RIP**, **OSPF**, and **BGP**.
+---
+
 ### **UNIT-IV: Transport Layer**
 
 The Transport Layer is the engine room of the network model. Its main job is to provide logical communication between **applications** running on different hosts. While the Network Layer gets packets from one computer to another, the Transport Layer gets the data to the correct **process** (application) on that computer.
